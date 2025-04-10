@@ -2,6 +2,8 @@ package dev.rosa.list_java;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -45,9 +47,16 @@ public class WeekDaysManagerTest {
 
     @Test
     @DisplayName("Test for getting a specific day from the list")
-    public void testGetSpecificDay() {
+    public public void testGetSpecificDay() {
         String result = weekDays.getSpecificDay("Sunday");
         assertEquals("Sunday", result);
+    }
+
+    @Test @DisplayName("Test to know if day of the list exist"){
+
+    public void testCheckDayExist() {
+        assertTrue(weekDays.checkDayExist("Friday"));
+        assertFalse(weekDays.checkDayExist("Summer"));
     }
 
 }
