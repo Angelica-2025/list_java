@@ -1,6 +1,7 @@
 package dev.rosa.list_java;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class WeekDaysManager {
@@ -18,7 +19,6 @@ public class WeekDaysManager {
 
     }
 
-    // Método para obtener la lista de días
     public List<String> getDaysWeek() {
         return days;
     }
@@ -34,6 +34,18 @@ public class WeekDaysManager {
 
     public String getSpecificDay(String day) {
         return day;
+    }
+
+    public boolean checkDayExist(String day) {
+        return days.contains(day);
+    }
+
+    public void sortDays() {
+        Collections.sort(days);
+    }
+
+    public void clearList() {
+        days.clear();
     }
 
 }

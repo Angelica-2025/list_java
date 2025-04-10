@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -21,8 +20,8 @@ public class WeekDaysManagerTest {
     }
 
     @Test
-    @DisplayName("Added test for getting the days of the week")
-    public void testgetDaysWeek() {
+    @DisplayName("Test for getting the days of the week")
+    public void testGetDaysWeek() {
         List<String> expectedDays = List.of("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
                 "Sunday");
         List<String> actualDays = weekDays.getDaysWeek();
@@ -31,14 +30,14 @@ public class WeekDaysManagerTest {
 
     @Test
     @DisplayName("Test for getting the size of the list")
-    public void testgetListSize() {
+    public void testGetListSize() {
         int actualSize = weekDays.getListSize();
         assertThat(actualSize).isEqualTo(7);
     }
 
     @Test
-    @DisplayName("Test for remove a day that does not exist")
-    public void testRemoveDay() {
+    @DisplayName("Test for removing a day that exists in the list")
+    public void testRemoveExistingDay() {
         int initialSize = weekDays.getListSize();
         boolean removed = weekDays.removeDay("Tuesday");
         assertThat(removed).isTrue();
@@ -47,16 +46,34 @@ public class WeekDaysManagerTest {
 
     @Test
     @DisplayName("Test for getting a specific day from the list")
-    public public void testGetSpecificDay() {
+    public void testGetSpecificDay() {
         String result = weekDays.getSpecificDay("Sunday");
         assertEquals("Sunday", result);
     }
 
-    @Test @DisplayName("Test to know if day of the list exist"){
-
+    @Test
+    @DisplayName("Test for checking if a specific day exists in the list")
     public void testCheckDayExist() {
-        assertTrue(weekDays.checkDayExist("Friday"));
-        assertFalse(weekDays.checkDayExist("Summer"));
+        boolean exists = weekDays.checkDayExist("Friday");
+        assertTrue(exists);
+        boolean notExists = weekDays.checkDayExist("Funday");
+        assertFalse(notExists);
     }
 
+    @Test
+    @DisplayName("Test for sorting the days of the week alphabetically")
+    public void testSortDays() {
+        weekDays.sortDays();
+        List<String> sortedDays = weekDays.getDaysWeek();
+        assertEquals("Friday", sortedDays.get(0));
+    }
+
+    @Test
+    @DisplayName("Test for clearing the list of days")
+    public void testClearList() {
+        weekDays.clearList();
+
+        int sizeAfterClear = weekDays.getListSize();
+        assertEquals(0, sizeAfterClear);
+    }
 }

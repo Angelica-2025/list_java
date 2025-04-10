@@ -1,23 +1,17 @@
 package dev.rosa.list_java;
 
-import java.util.List;
-
-/**
- * Hello world!
- */
 public final class App {
+
     private App() {
     }
 
-    /**
-     * Says hello to the world.
-     * 
-     * @param args The arguments of the program.
-     */
-
-    // Método principal para probar la funcionalidad
     public static void main(String[] args) {
-        System.out.println("Week's days: ");
-    }
+        WeekDaysManager weekDaysManager = new WeekDaysManager();
+        weekDaysManager.createList();
 
+        System.out.print("Week's days: ");
+        for (String day : weekDaysManager.getDaysWeek()) {
+            System.out.print(day + " ");
+        }
+    }
 }
