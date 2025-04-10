@@ -23,4 +23,9 @@ public class WeekDaysManager {
         return days;
     }
 
+    public int getListSize() {
+        return days.size();
+
+    }
+
 }
