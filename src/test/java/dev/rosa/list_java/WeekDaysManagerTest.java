@@ -1,6 +1,8 @@
 package dev.rosa.list_java;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -30,6 +32,15 @@ public class WeekDaysManagerTest {
     public void testgetListSize() {
         int actualSize = weekDays.getListSize();
         assertThat(actualSize).isEqualTo(7);
+    }
+
+    @Test
+    @DisplayName("Test for remove a day that does not exist")
+    public void testRemoveDay() {
+        int initialSize = weekDays.getListSize();
+        boolean removed = weekDays.removeDay("Tuesday");
+        assertThat(removed).isTrue();
+        assertThat(weekDays.getDaysWeek()).doesNotContain("Tuesday");
     }
 
 }
