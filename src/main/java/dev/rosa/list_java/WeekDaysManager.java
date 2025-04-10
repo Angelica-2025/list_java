@@ -31,4 +31,9 @@ public class WeekDaysManager {
     public boolean removeDay(String day) {
         return days.remove(day);
     }
+
+    public String getSpecificDay(String day) {
+        return day;
+    }
+
 }

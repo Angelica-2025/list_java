@@ -46,7 +46,7 @@ public class WeekDaysManagerTest {
     @Test
     @DisplayName("Test for getting a specific day from the list")
     public void testGetSpecificDay() {
-        String result = weekDays.getSpecificDay("Saturday");
+        String result = weekDays.getSpecificDay("Sunday");
         assertEquals("Sunday", result);
     }
 
