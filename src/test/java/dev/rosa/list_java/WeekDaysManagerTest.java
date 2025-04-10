@@ -43,10 +43,11 @@ public class WeekDaysManagerTest {
         assertThat(weekDays.getDaysWeek()).doesNotContain("Tuesday");
     }
 
-}
+    @Test
+    @DisplayName("Test for getting a specific day from the list")
+    public void testGetSpecificDay() {
+        String result = weekDays.getSpecificDay("Saturday");
+        assertEquals("Sunday", result);
+    }
 
-/*
- * Depuración: Imprimir ambas listas para verificar el contenido
- * System.out.println("Expected: " + expectedDays);
- * System.out.println("Actual: " + actualDays);
- */
+}
