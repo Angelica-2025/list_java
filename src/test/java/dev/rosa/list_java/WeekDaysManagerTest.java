@@ -2,7 +2,6 @@ package dev.rosa.list_java;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,28 +12,21 @@ public class WeekDaysManagerTest {
     @BeforeEach
     void setUp() {
         weekDays = new WeekDaysManager();
+        weekDays.createList(); // Asegúrate de que este método se llama
     }
 
     @Test
-    // Lista esperada de días de la semana
     void getDaysWeek() {
-
-        // Lista esperada de días de la semana - Given
+        // Lista esperada de días de la semana
         List<String> expectedDays = List.of("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
                 "Sunday");
 
-        // When - Obtenemos la lista real de días desde el método getDaysWeek() de la
-        // clase WeekDaysManager
+        // Obtenemos la lista real de días desde el método getDaysWeek()
         List<String> actualDays = weekDays.getDaysWeek();
 
-        // Then - Comprobamos si ambas listas son iguales usando assertIterableEquals
-        assertThat(actualDays);
+        // Depuración: Imprimir ambas listas para verificar el contenido
 
+        // Comprobamos si ambas listas son iguales
+        assertThat(actualDays).isEqualTo(expectedDays);
     }
-
-    private void assertThat(List<String> actualDays) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'assertThat'");
-    }
-
 }
